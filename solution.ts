@@ -1,4 +1,3 @@
-// Problem 1
 const formatValue = (input: string | number | boolean): string | number | boolean | undefined => {
     if (typeof input === "string") {
         return (input.toUpperCase());
@@ -9,7 +8,7 @@ const formatValue = (input: string | number | boolean): string | number | boolea
     }
 }
 
-// Problem 2
+
 const getLength = (input: string | number[]): number | undefined => {
     if (typeof input === "string") {
         return (input.length)
@@ -18,7 +17,7 @@ const getLength = (input: string | number[]): number | undefined => {
     }
 }
 
-// Problem 3
+
 class Person {
     name: string;
     age: number
@@ -32,17 +31,24 @@ class Person {
     }
 }
 
-// Problem 4
+
 type Item = {
     title: string,
     rating: number
 }
 
 const filterByRating = (items: Item[]): Item[] => {
-    return items.filter((item) => item.rating >= 4)
+    return items.filter((item) => {
+        if (typeof item.rating !== "number") return false
+
+        if (item.rating < 0 || item.rating > 5) return false;
+
+        return item.rating >= 4;
+    })
 }
 
-// Problem 5
+
+
 type User = {
     id: number,
     name: string,
@@ -54,7 +60,7 @@ const filterActiveUsers = (users: User[]): User[] => {
     return users.filter((user) => user.isActive === true)
 }
 
-// problem 6
+
 interface Book {
     title: string,
     author: string,
@@ -67,7 +73,7 @@ const printBookDetails = (book: Book): void => {
     console.log(`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${avaibility}`);
 }
 
-// Problem 7
+
 function getUniqueValues(array1: (number | string)[], array2: (number | string)[]): (string | number)[] {
     const freshArray: (number | string)[] = []
 
@@ -98,7 +104,6 @@ function getUniqueValues(array1: (number | string)[], array2: (number | string)[
 }
 
 
-// Problem 8
 interface Product {
     name: string,
     price: number,

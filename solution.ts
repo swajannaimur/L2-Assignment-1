@@ -68,7 +68,7 @@ const printBookDetails = (book: Book): void => {
 }
 
 // Problem 7
-function getUniqueValues(array1: (number | string)[], array2: (number | string)[]) {
+function getUniqueValues(array1: (number | string)[], array2: (number | string)[]): (string | number)[] {
     const freshArray: (number | string)[] = []
 
     for (let a = 0; a < array1.length; a++) {
@@ -99,3 +99,21 @@ function getUniqueValues(array1: (number | string)[], array2: (number | string)[
 
 
 // Problem 8
+interface Product {
+    name: string,
+    price: number,
+    quantity: number,
+    discount?: number
+}
+
+// Function to calculate total price
+const calculateTotalPrice = (products: Product[]) => {
+    return products.reduce((total, product) => {
+        const totalPrice = product.price * product.quantity
+        const discountedPrice = product.discount !== undefined ? totalPrice - totalPrice * product.discount / 100 : totalPrice
+
+        return total + discountedPrice
+    }, 0)
+}
+
+

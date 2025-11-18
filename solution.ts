@@ -43,3 +43,59 @@ const filterByRating = (items: Item[]): Item[] => {
 }
 
 // Problem 5
+type User = {
+    id: number,
+    name: string,
+    email: string,
+    isActive: boolean
+}
+
+const filterActiveUsers = (users: User[]): User[] => {
+    return users.filter((user) => user.isActive === true)
+}
+
+// problem 6
+interface Book {
+    title: string,
+    author: string,
+    publishedYear: number,
+    isAvailable: boolean
+}
+
+const printBookDetails = (book: Book): void => {
+    const avaibility = book.isAvailable ? "yes" : "no"
+    console.log(`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${avaibility}`);
+}
+
+// Problem 7
+function getUniqueValues(array1: (number | string)[], array2: (number | string)[]) {
+    const freshArray: (number | string)[] = []
+
+    for (let a = 0; a < array1.length; a++) {
+        let isExists = false
+        for (let b = 0; b < freshArray.length; b++) {
+            if (array1[a] === freshArray[b]) {
+                isExists = true
+            }
+        }
+        if (!isExists) {
+            freshArray.push(array1[a])
+        }
+    }
+
+    for (let a = 0; a < array2.length; a++) {
+        let isExists = false
+        for (let b = 0; b < freshArray.length; b++) {
+            if (array2[a] === freshArray[b]) {
+                isExists = true
+            }
+        }
+        if (!isExists) {
+            freshArray.push(array2[a])
+        }
+    }
+    return freshArray
+}
+
+
+// Problem 8

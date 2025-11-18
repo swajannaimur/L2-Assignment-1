@@ -106,7 +106,6 @@ interface Product {
     discount?: number
 }
 
-// Function to calculate total price
 const calculateTotalPrice = (products: Product[]) => {
     return products.reduce((total, product) => {
         const totalPrice = product.price * product.quantity
